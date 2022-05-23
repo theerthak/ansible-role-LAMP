@@ -1,0 +1,19 @@
+- name: install apache2 debian
+  ansible.builtin.apt:
+    name: apache2
+    state: present
+    update_cache: yes
+  changed_when: true
+  notify: Restart apache2
+
+- name: copying the config file on debian
+  ansible.builtin.template:
+    src: templates/apache2.conf.j2
+    dest: "{{ config }}"
+  changed_when: true
+  notify: Restart apache2
+- name: Installing common pacakges
+  ansible.builtin.apt:
+    name: "{{ pkg }}"
+    state: present
+    update_cache: yes

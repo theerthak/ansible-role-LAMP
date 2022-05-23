@@ -1,0 +1,23 @@
+---
+# defaults file for roles---
+http_port: 80
+admin: bob@gmail.com
+doc_root: /var/www/html
+domain: testjh.cf
+config: /etc/apache2/sites-available/000-default.conf
+config_httpd: /etc/httpd/httpd.conf.default
+
+pkg:
+ - php7.4-mysql
+ - php7.4-curl
+ - php7.4-json
+ - php7.4-cgi
+ - php7.4-xsl
+ - php7.4-cgi
+ - php7.4-gd
+ - php7.4-mbstring
+ - php7.4-zip
+ - php7.4-xmlrpc
+ - php7.4-soap
+ - php7.4-intl
+ - libapache2-mod-php

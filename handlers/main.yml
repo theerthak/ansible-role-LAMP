@@ -1,0 +1,14 @@
+---
+# handlers file for roles---
+- name: Restart apache2
+  ansible.builtin.service:
+    name: apache2
+    state: restarted
+  when: ansible_facts['os_family']=='Debian'
+
+- name: Reload httpd
+  ansible.builtin.service:
+      name: httpd
+      state: reloaded
+  when: ansible_facts['os_family']=='CentOs'
+

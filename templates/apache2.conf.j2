@@ -1,0 +1,7 @@
+<VirtualHost *:{{ http_port | default(80) }}>
+    ServerAdmin {{ admin }}
+    ServerName {{ domain }}
+    DocumentRoot {{ doc_root }}
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>

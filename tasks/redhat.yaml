@@ -1,0 +1,21 @@
+---
+- name: install apache2 on redhat
+  ansible.builtin.yum:
+    name: httpd
+    state: present
+    update_cache: yes
+  changed_when: true
+  notify: Reload httpd
+
+- name: copying the config file on redhat
+  ansible.builtin.copy:
+    content: apache2.conf.j2
+    dest: "{{ config_httpd }}"
+  changed_when: true
+  notify: Reload htppd
+
+- name: Installing common pacakges
+  ansible.builtin.yum:
+   name: "{{ pkg }}"
+   state: present
+   update_cache: yes
